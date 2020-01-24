@@ -1,18 +1,18 @@
-// Ultraschallsensor 1
+// Ultraschallsensor mitte
 int trigPin1 = 12;
 int echoPin1 = 13;
 
 long dauer1 = 0;
 long entfernung1 = 0;
 
-// Ultraschallsensor 2
+// Ultraschallsensor rechts
 int trigPin2 = 10;
 int echoPin2 = 11;
 
 long dauer2 = 0;
 long entfernung2 = 0;
 
-// Ultraschallsensor 3
+// Ultraschallsensor links
 int trigPin3 = 6;
 int echoPin3 = 5;
 
