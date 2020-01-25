@@ -1,64 +1,53 @@
-int degree = 0;
-//int frontSensor;
-//int leftSensor;
-//int rightSensor;
+int degree = 0; //gibt an, in welcher Stellung sich das Fahrzeug befindet - Start ist bei 0
 
 //--------------Motoren-----------------------------------
 
 //Motoren
-//rechts in Fahrtrichtung
-int in1=8;
-int in2=7;
-
-//links in Fahrtrichtung
-int in3=4;
-int in4=2;
+int in1 = 8;  //rechte Seite
+int in2 = 7;  //rechte Seite
+int in3 = 4;  //linke Seite
+int in4 = 2;  //linke Seite
 
 //Drehzahlregulierung
-int ENA = 3;
-int ENB = 9;
-int SPEED = 150;
-int SPEED1= 150;
+int ENA = 3;  //Drehzahlregelung rechte Seite
+int ENB = 9;  //Drehzahlregelung linke Seite
+int SPEED = 150;  //Analoge Werte geben die Geschwindigkeit zum geradeaus Fahren vor (0-255)
+int SpeedDrehen = 150; //Analoge Werte geben die Geschwindigkeit für das Drehen des Fahrzeugs vor (0-255)
 
 //--------------Ultraschallsensoren---------------------------
 
-// Ultraschallsensor mitte
+// Ultraschallsensor vorne
 int trigPin1 = 12;
 int echoPin1 = 13;
-
 long dauer1 = 0;
 long frontSensor = 0;
 
 // Ultraschallsensor rechts
 int trigPin2 = 10;
 int echoPin2 = 11;
-
 long dauer2 = 0;
 long rightSensor = 0;
 
 // Ultraschallsensor links
 int trigPin3 = 6;
 int echoPin3 = 5;
-
 long dauer3 = 0;
 long leftSensor = 0;
 
 
-void setup(){
+void setup()  {
   
-  // MOTORSTEUERUNG
-  // rechts in Fahrtrichtung
-  pinMode(in1, OUTPUT);
-  pinMode(in2, OUTPUT);
-
-  // links in Fahrtrichtung
-  pinMode(in3, OUTPUT);
-  pinMode(in4, OUTPUT);
+  //------------------MOTORSTEUERUNG--------------------------
+  
+  pinMode(in1, OUTPUT); //rechte Seite
+  pinMode(in2, OUTPUT); //rechte Seite
+  pinMode(in3, OUTPUT); //linke Seite
+  pinMode(in4, OUTPUT); //linke Seite
 
 //------------------Ultraschallsensoren-----------------------
 
   // Ultraschallsensor 1
-  //Serial.begin(9600);
+  Serial.begin(9600);
   pinMode(trigPin1, OUTPUT);
   pinMode(echoPin1, INPUT);
 
@@ -69,13 +58,14 @@ void setup(){
   // Ultraschallsensor 3
   pinMode(trigPin3, OUTPUT);
   pinMode(echoPin3, INPUT);
-
 }
 
 
-void loop()
-{
-  // Ultraschallsensor 1
+void loop() {
+  
+  //---------------Ultraschallsensoren-----------------------
+  
+  //Ultraschallsensor vorne
   digitalWrite(trigPin1, LOW);
   delay(5);
   digitalWrite(trigPin1, HIGH);
@@ -83,11 +73,11 @@ void loop()
   digitalWrite(trigPin1, LOW);
   dauer1 = pulseIn(echoPin1, HIGH);
   frontSensor = (dauer1/2) * 0.03432;
-  Serial.print(frontSensor);
-  Serial.print(" cm");
+  //Serial.print(frontSensor);
+  //Serial.print(" cm");
   delay(100);
 
-   // Ultraschallsensor 2
+   // Ultraschallsensor rechts
   digitalWrite(trigPin2, LOW);
   delay(5);
   digitalWrite(trigPin2, HIGH);
@@ -95,11 +85,11 @@ void loop()
   digitalWrite(trigPin2, LOW);
   dauer2 = pulseIn(echoPin2, HIGH);
   rightSensor = (dauer2/2) * 0.03432;
-  //Serial.print(entfernung2);
+  //Serial.print(rightSensor);
   //Serial.print(" cm");
   delay(100);
 
-  // Ultraschallsensor 3
+  // Ultraschallsensor links
   digitalWrite(trigPin3, LOW);
   delay(5);
   digitalWrite(trigPin3, HIGH);
@@ -107,7 +97,7 @@ void loop()
   digitalWrite(trigPin3, LOW);
   dauer3 = pulseIn(echoPin3, HIGH);
   leftSensor = (dauer3/2) * 0.03432;
-  //Serial.print(entfernung3);
+  //Serial.print(leftSensor);
   //Serial.print(" cm");
   delay(100);
   
@@ -126,8 +116,8 @@ void loop()
         delay(2000);
    
         //drehen nach rechts um 90 grad
-        analogWrite(ENA, SPEED); //speed 0 - 255
-        analogWrite(ENB, SPEED); //speed 0 - 255
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, LOW);
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
@@ -145,8 +135,8 @@ void loop()
         delay(2000);
    
         //drehen nach rechts um 180 grad
-        analogWrite(ENA, SPEED); //speed 0 - 255
-        analogWrite(ENB, SPEED); //speed 0 - 255
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, LOW);
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
@@ -164,8 +154,8 @@ void loop()
         delay(2000);
    
         // drehen nach rechts um 90 grad
-        analogWrite(ENA, SPEED); //speed 0 - 255
-        analogWrite(ENB, SPEED); //speed 0 - 255
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, LOW);
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
@@ -186,8 +176,8 @@ void loop()
         delay(2000);
    
         // drehen nach links um 90 grad
-        //analogWrite(ENA, SPEED); //speed 0 - 255
-        //analogWrite(ENB, SPEED); //speed 0 - 255
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, HIGH);
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
@@ -205,8 +195,8 @@ void loop()
         delay(2000);
    
         //drehen nach rechts um 180 grad
-        analogWrite(ENA, SPEED); //speed 0 - 255
-        analogWrite(ENB, SPEED); //speed 0 - 255
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, LOW);
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
@@ -224,8 +214,8 @@ void loop()
         delay(2000);
    
         // drehen nach links um 90 grad
-        analogWrite(ENA, SPEED); //speed 0 - 255
-        analogWrite(ENB, SPEED); //speed 0 - 255
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, HIGH);
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
@@ -249,8 +239,8 @@ void loop()
 //---------------FEHLER-----------------------------------------------
    
         //drehen nach rechts um 180 grad
-        analogWrite(ENA, SPEED); //speed 0 - 255
-        analogWrite(ENB, SPEED); //speed 0 - 255
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, LOW);
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
@@ -270,9 +260,8 @@ void loop()
         delay(2000);
    
         //drehen nach links um 180 grad
-        //analogWrite(ENA, SPEED); //speed 0 - 255
-        //analogWrite(ENB, SPEED); //speed 0 - 255
-        //Fahrzeug bleibt stehen
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, HIGH);
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
@@ -293,8 +282,8 @@ void loop()
           delay(2000);
    
           //drehen nach rechts um 90 grad
-          analogWrite(ENA, SPEED); //speed 0 - 255
-          analogWrite(ENB, SPEED); //speed 0 - 255
+          analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+          analogWrite(ENB, SpeedDrehen); //speed 0 - 255
           digitalWrite(in1, LOW);
           digitalWrite(in2, HIGH);
           digitalWrite(in3, HIGH);
@@ -312,9 +301,8 @@ void loop()
         delay(2000);
    
         //drehen nach links um 90 grad
-        analogWrite(ENA, SPEED); //speed 0 - 255
-        analogWrite(ENB, SPEED); //speed 0 - 255
-        //Fahrzeug bleibt stehen
+        analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+        analogWrite(ENB, SpeedDrehen); //speed 0 - 255
         digitalWrite(in1, HIGH);
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
@@ -343,8 +331,8 @@ void loop()
       delay(2000);
    
       //drehen nach rechts um 90 grad
-      analogWrite(ENA, SPEED); //speed 0 - 255
-      analogWrite(ENB, SPEED); //speed 0 - 255
+      analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+      analogWrite(ENB, SpeedDrehen); //speed 0 - 255
       digitalWrite(in1, LOW);
       digitalWrite(in2, HIGH);
       digitalWrite(in3, HIGH);
@@ -362,25 +350,23 @@ void loop()
       delay(2000);
    
     // drehen nach links um 90 grad
-    analogWrite(ENA, SPEED); //speed 0 - 255
-    analogWrite(ENB, SPEED); //speed 0 - 255
-    digitalWrite(in1, HIGH);
-    digitalWrite(in2, LOW);
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, HIGH);
-    delay(150);
+      analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+      analogWrite(ENB, SpeedDrehen); //speed 0 - 255
+      digitalWrite(in1, HIGH);
+      digitalWrite(in2, LOW);
+      digitalWrite(in3, LOW);
+      digitalWrite(in4, HIGH);
+      delay(150);
     }
   }
   else {
     // vorwärts fahren
-    analogWrite(ENA, SPEED); //speed 0 - 255
-    analogWrite(ENB, SPEED); //speed 0 - 255
-    // linke Seite
-    digitalWrite(in1, LOW);
-    digitalWrite(in2, HIGH);
-    // rechte Seite
-    digitalWrite(in3, LOW);
-    digitalWrite(in4, HIGH);
+    analogWrite(ENA, SPEED);  //speed 0 - 255
+    analogWrite(ENB, SPEED);  //speed 0 - 255
+    digitalWrite(in1, LOW);   //linke Seite
+    digitalWrite(in2, HIGH);  //linke Seite
+    digitalWrite(in3, LOW);   //rechte Seite
+    digitalWrite(in4, HIGH);  //rechte Seite
   }
 }
 
@@ -398,8 +384,8 @@ void randomTurn()
     delay(2000);
    
     //drehen nach links um 90 grad
-    analogWrite(ENA, SPEED); //speed 0 - 255
-    analogWrite(ENB, SPEED); //speed 0 - 255
+    analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+    analogWrite(ENB, SpeedDrehen); //speed 0 - 255
     digitalWrite(in1, HIGH);
     digitalWrite(in2, LOW);
     digitalWrite(in3, LOW);
@@ -417,8 +403,8 @@ void randomTurn()
     delay(2000);
    
     // drehen nach rechts um 90 grad
-    analogWrite(ENA, SPEED); //speed 0 - 255
-    analogWrite(ENB, SPEED); //speed 0 - 255
+    analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+    analogWrite(ENB, SpeedDrehen); //speed 0 - 255
     digitalWrite(in1, LOW);
     digitalWrite(in2, HIGH);
     digitalWrite(in3, HIGH);
