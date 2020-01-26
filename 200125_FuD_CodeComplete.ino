@@ -12,7 +12,7 @@ int in4 = 2;            //linke Seite
 int ENA = 3;            //Drehzahlregelung rechte Seite
 int ENB = 9;            //Drehzahlregelung linke Seite
 int SPEED = 150;        //Analoge Werte geben die Geschwindigkeit zum geradeaus Fahren vor (0-255)
-int SpeedDrehen = 150;  //Analoge Werte geben die Geschwindigkeit für das Drehen des Fahrzeugs vor (0-255)
+int SpeedDrehen = 200;  //Analoge Werte geben die Geschwindigkeit für das Drehen des Fahrzeugs vor (0-255)
 
 //--------------Ultraschallsensoren---------------------------
 
@@ -103,7 +103,7 @@ void loop()
   //Serial.print(" cm");
   delay(100);
   
-  if(frontSensor <= 20)
+  if(frontSensor <= 30) //war vorher auf Wert 20 eingestellet (Reaktion zu langsam)
   {
     if(leftSensor <= 20 && rightSensor > 20)
     {
