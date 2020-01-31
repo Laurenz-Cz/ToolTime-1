@@ -105,18 +105,18 @@ void loop()
   
   if(frontSensor <= 30) //war vorher auf Wert 20 eingestellet (Reaktion zu langsam)
   {
-    if(leftSensor <= 20 && rightSensor > 20)
-    {
-      if(degree == 0)
-      {
-        degree -= 90;
-        //Fahrzeug bleibt stehen
+     //Fahrzeug bleibt stehen
         digitalWrite(in1, LOW);
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
         digitalWrite(in4, LOW);
         delay(2000);
-   
+    
+    if(leftSensor <= 20 && rightSensor > 20)
+    {
+      if(degree == 0)
+      {
+        degree -= 90;
         //drehen nach rechts um 90 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -129,13 +129,6 @@ void loop()
       else if(degree == -90)
       {
         degree = 90;
-        //Fahrzeug bleibt stehen
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
         //drehen nach rechts um 180 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -148,13 +141,6 @@ void loop()
       else if(degree == 90)
       {
         degree = 0;
-        //Fahrzeug bleibt stehen
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
         // drehen nach rechts um 90 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -169,14 +155,7 @@ void loop()
     {
       if(degree == 0)
       {
-        degree += 90; 
-        //Fahrzeug bleibt stehen
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
+        degree += 90;
         // drehen nach links um 90 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -189,13 +168,6 @@ void loop()
       else if(degree == 90)
       {
         degree -= 90;
-        //Fahrzeug bleibt stehen
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
         //drehen nach links um 180 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -207,14 +179,7 @@ void loop()
       }
       else if(degree == -90)
       {
-        degree = 0;
-        //Fahrzeug bleibt stehen 
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
+        degree = 0;   
         // drehen nach links um 90 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -230,13 +195,6 @@ void loop()
       if(degree == 90)
       {
         degree -= 90;
-        //Fahrzeug bleibt stehen 
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-  
         //drehen nach rechts um 180 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -249,14 +207,7 @@ void loop()
 
       else if(degree = -90)
       {
-        degree = 90; 
-        //Fahrzeug bleibt stehen
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
+        degree = 90;   
         //drehen nach links um 180 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -271,14 +222,7 @@ void loop()
     {
       if(degree == 90)
       {
-        degree = 0;
-        //Fahrzeug bleibt stehen
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
+        degree = 0;   
         //drehen nach rechts um 90 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -290,14 +234,7 @@ void loop()
       }
       else if(degree == -90)
       {
-        degree = 0;
-        //Fahrzeug bleibt stehen 
-        digitalWrite(in1, LOW);
-        digitalWrite(in2, LOW);
-        digitalWrite(in3, LOW);
-        digitalWrite(in4, LOW);
-        delay(2000);
-   
+        degree = 0;   
         //drehen nach links um 90 grad
         analogWrite(ENA, SpeedDrehen); //speed 0 - 255
         analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -324,14 +261,7 @@ void loop()
   {
     if(degree == 90)
     {
-      degree = 0;
-      //Fahrzeug bleibt stehen
-      digitalWrite(in1, LOW);
-      digitalWrite(in2, LOW);
-      digitalWrite(in3, LOW);
-      digitalWrite(in4, LOW);
-      delay(2000);
-   
+      degree = 0;   
       //drehen nach rechts um 90 grad
       analogWrite(ENA, SpeedDrehen); //speed 0 - 255
       analogWrite(ENB, SpeedDrehen); //speed 0 - 255
@@ -356,14 +286,7 @@ void loop()
     }
     else if(degree == -90)
     {
-      degree = 0;
-      //Fahrzeug bleibt stehen
-      digitalWrite(in1, LOW);
-      digitalWrite(in2, LOW);
-      digitalWrite(in3, LOW);
-      digitalWrite(in4, LOW);
-      delay(2000);
-   
+      degree = 0;   
       //drehen nach links um 90 grad
       analogWrite(ENA, SpeedDrehen); //speed 0 - 255
       analogWrite(ENB, SpeedDrehen); //speed 0 - 255
