@@ -124,7 +124,7 @@ void loop()
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
         digitalWrite(in4, LOW);
-        delay(150);
+        delay(650);
       }
       else if(degree == -90)
       {
@@ -136,7 +136,7 @@ void loop()
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
         digitalWrite(in4, LOW);
-        delay(300); //Doppeltes Delay
+        delay(1300); //Doppeltes Delay
       }
       else if(degree == 90)
       {
@@ -148,7 +148,7 @@ void loop()
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
         digitalWrite(in4, LOW);
-        delay(150);
+        delay(650);
       }
     }
     else if(rightSensor <= 20 && leftSensor > 20)
@@ -163,7 +163,7 @@ void loop()
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
         digitalWrite(in4, HIGH);
-        delay(150);
+        delay(650);
       }
       else if(degree == 90)
       {
@@ -175,7 +175,7 @@ void loop()
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
         digitalWrite(in4, HIGH);
-        delay(300); //Doppelter Delay
+        delay(1300); //Doppelter Delay
       }
       else if(degree == -90)
       {
@@ -187,7 +187,7 @@ void loop()
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
         digitalWrite(in4, HIGH);
-        delay(150);
+        delay(650);
       }
     }
     else if(rightSensor <= 20 && leftSensor <= 20)
@@ -202,7 +202,7 @@ void loop()
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
         digitalWrite(in4, LOW);
-        delay(300); //doppelt Delay
+        delay(1300); //doppelt Delay
       }
 
       else if(degree = -90)
@@ -215,7 +215,7 @@ void loop()
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
         digitalWrite(in4, HIGH);
-        delay(300); //Doppeltes Delay
+        delay(1300); //Doppeltes Delay
       }
     }
     else if(rightSensor > 20 && leftSensor > 20)
@@ -230,7 +230,7 @@ void loop()
         digitalWrite(in2, HIGH);
         digitalWrite(in3, HIGH);
         digitalWrite(in4, LOW);
-        delay(150);
+        delay(650);
       }
       else if(degree == -90)
       {
@@ -242,7 +242,7 @@ void loop()
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
         digitalWrite(in4, HIGH);
-        delay(150);
+        delay(650);
       }
     }
     else 
@@ -269,7 +269,7 @@ void loop()
       digitalWrite(in2, HIGH);
       digitalWrite(in3, HIGH);
       digitalWrite(in4, LOW);
-      delay(150);
+      delay(650);
       
       //-------------TESTBLOCK----------------------
       
@@ -294,7 +294,7 @@ void loop()
       digitalWrite(in2, LOW);
       digitalWrite(in3, LOW);
       digitalWrite(in4, HIGH);
-      delay(150);
+      delay(650);
       
       //-------------TESTBLOCK----------------------
       
@@ -346,7 +346,7 @@ void randomTurn()
     digitalWrite(in2, LOW);
     digitalWrite(in3, LOW);
     digitalWrite(in4, HIGH);
-    delay(150);
+    delay(650);
   }
   else
   {
@@ -365,6 +365,6 @@ void randomTurn()
     digitalWrite(in2, HIGH);
     digitalWrite(in3, HIGH);
     digitalWrite(in4, LOW);
-    delay(150);
+    delay(650);
   }
 }
