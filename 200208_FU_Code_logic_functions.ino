@@ -1,5 +1,5 @@
 int degree = 0; //gibt an, in welcher Stellung sich das Fahrzeug befindet --> Start ist bei 0
-int dist1 = 28;
+int dist1 = 30;
 
 //--------------Motoren-----------------------------------------------------------------------------------------------------
 
@@ -12,13 +12,13 @@ int in4 = 2;            //linke Seite
 //Drehzahlregulierung
 int ENA = 3;            //Drehzahlregelung rechte Seite
 int ENB = 9;            //Drehzahlregelung linke Seite
-int SPEED1 = 150;       //Analoge Werte geben die Geschwindigkeit zum geradeaus Fahren vor (0-255)
-int SpeedDrehen = 255;  //Analoge Werte geben die Geschwindigkeit für das Drehen des Fahrzeugs vor (0-255)
+//int SPEED1 = 255;       //Analoge Werte geben die Geschwindigkeit zum geradeaus Fahren vor (0-255)
+//int SpeedDrehen = 255;  //Analoge Werte geben die Geschwindigkeit für das Drehen des Fahrzeugs vor (0-255)
 
-int DELAY = 650;
-int DELAYdoppelt = 1300;
+int DELAY = 700;
+int DELAYdoppelt = 1400;
 int DELAYstehen = 1000;
-int DELAYultra = 100;
+int DELAYultra = 60;
 
 //--------------Ultraschallsensoren----------------------------------------------------------------------------------------
 
@@ -110,8 +110,8 @@ void UltraschallSensoren (){
 }
 
 void DrehungR90 (){
-  analogWrite(ENA, SpeedDrehen); //speed 0 - 255
-  analogWrite(ENB, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENB, SpeedDrehen); //speed 0 - 255
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   digitalWrite(in3, HIGH);
@@ -120,8 +120,8 @@ void DrehungR90 (){
 }
 
 void DrehungL90 (){
-  analogWrite(ENA, SpeedDrehen); //speed 0 - 255
-  analogWrite(ENB, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENB, SpeedDrehen); //speed 0 - 255
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -130,8 +130,8 @@ void DrehungL90 (){
 }
 
 void DrehungR180 (){
-  analogWrite(ENA, SpeedDrehen); //speed 0 - 255
-  analogWrite(ENB, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENB, SpeedDrehen); //speed 0 - 255
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   digitalWrite(in3, HIGH);
@@ -140,8 +140,8 @@ void DrehungR180 (){
 }
 
 void DrehungL180 (){
-  analogWrite(ENA, SpeedDrehen); //speed 0 - 255
-  analogWrite(ENB, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENA, SpeedDrehen); //speed 0 - 255
+  //analogWrite(ENB, SpeedDrehen); //speed 0 - 255
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -158,8 +158,8 @@ void Stop (){
 }
 
 void Vorwaerts (){
-  analogWrite(ENA, SPEED1); //speed 0 - 255
-  analogWrite(ENB, SPEED1); //speed 0 - 255
+  //analogWrite(ENA, SPEED1); //speed 0 - 255
+  //analogWrite(ENB, SPEED1); //speed 0 - 255
   digitalWrite(in1, LOW); // Linkeseite
   digitalWrite(in2, HIGH); // Linkeseite
   digitalWrite(in3, LOW); // Rechteseite
@@ -174,7 +174,7 @@ void FrontLeft (){
     //Rechtsdrehung
 
     degree = -90;
-    DrehungR180();
+    DrehungR90();
   }
 
   else if (degree == 90)
@@ -234,7 +234,7 @@ void FrontLeftRight (){
   {
     //Rechtsdrehung um 180°
 
-    degree = 187;
+    degree = 180;
     DrehungR180;
         
   }
