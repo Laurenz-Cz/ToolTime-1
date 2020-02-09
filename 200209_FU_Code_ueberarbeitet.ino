@@ -381,7 +381,7 @@ void loop(){
     }
 
 
-//--------------------Wenn keine Bedingung erfüllt ist, fährt das Fahrzeug nach vorne------------------------------------   
+//--------------------Wenn keine Bedingung erfüllt ist, dreht sich das Fahrzeug auf 0° und fährt weiter-----------------   
       
     
   }
