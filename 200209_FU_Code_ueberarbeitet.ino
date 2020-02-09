@@ -326,6 +326,12 @@ void DrehungNachVorne(){
       degree = 0;
       DrehungL90;
     }
+    
+    else if (degree == 180)
+    {
+      degree = 0;
+      DrehungR180;
+    }
   }
 }
 
